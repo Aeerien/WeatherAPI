@@ -1,10 +1,7 @@
-//  CurrentWeatherView.swift
-//  WeatherAPI
-//  Created by Irina Arkhireeva on 18.05.2025.
 
 import UIKit
 
-/// Представление для отображения текущей погоды
+// View for displaying current weather
 class CurrentWeatherView: UIView {
     
     private let titleLabel: UILabel = {
@@ -12,7 +9,7 @@ class CurrentWeatherView: UIView {
         label.configureBaseStyle(
             fontSize: 16,
             weight: .medium,
-            text: "МОЯ ГЕОПОЗИЦИЯ"
+            text: "MY LOCATION"
         )
         return label
     }()

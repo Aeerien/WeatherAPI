@@ -1,27 +1,24 @@
-//  WeatherService.swift
-//  WeatherAPI
-//  Created by Irina Arkhireeva on 18.05.2025.
 
 import Foundation
 
-/// Сервис для получения данных о погоде из WeatherAPI
+// Service for fetching weather data from WeatherAPI
 class WeatherService {
     private let baseURL = "https://api.weatherapi.com/v1/"
     private let apiKey = "fa8b3df74d4042b9aa7135114252304"
     
-    /// Запрашивает текущую погоду по координатам
+    // Requests current weather by coordinates
     func fetchCurrentWeather(lat: Double, lon: Double, completion: @escaping (Result<CurrentWeather, Error>) -> Void) {
         let urlString = "\(baseURL)current.json?key=\(apiKey)&q=\(lat),\(lon)"
         fetch(urlString: urlString, completion: completion)
     }
     
-    /// Запрашивает прогноз погоды на 7 дней по координатам
+    // Requests 7-day weather forecast by coordinates
     func fetchForecast(lat: Double, lon: Double,completion: @escaping (Result<ForecastResponse, Error>) -> Void) {
         let urlString = "\(baseURL)forecast.json?key=\(apiKey)&q=\(lat),\(lon)&days=7"
         fetch(urlString: urlString, completion: completion)
     }
     
-    /// Универсальный метод выполнения HTTPS-запроса и декодирования JSON
+    // Universal method for performing HTTPS requests and decoding JSON
     private func fetch<T: Decodable>(urlString: String, completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = URL(string: urlString) else {
             DispatchQueue.main.async {

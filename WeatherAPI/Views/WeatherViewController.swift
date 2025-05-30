@@ -1,10 +1,7 @@
-//  WeatherViewController.swift
-//  WeatherAPI
-//  Created by Irina Arkhireeva on 18.05.2025.
 
 import UIKit
 
-/// Экран с погодой, обёрнутый в UIScrollView для прокрутки содержимого
+// Weather screen wrapped in a UIScrollView to enable content scrolling
 class WeatherViewController: UIViewController {
     private let viewModel = WeatherViewModel()
     private let locationManager = LocationManager()
@@ -29,7 +26,7 @@ class WeatherViewController: UIViewController {
     
     private let updateButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Обновить", for: .normal)
+        button.setTitle("Refresh", for: .normal)
         button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8
@@ -101,7 +98,7 @@ class WeatherViewController: UIViewController {
         }
         viewModel.onError = { [weak self] error in
             let alert = UIAlertController(
-                title: "Ошибка",
+                title: "Error",
                 message: error.localizedDescription,
                 preferredStyle: .alert
             )

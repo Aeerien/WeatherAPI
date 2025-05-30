@@ -1,17 +1,14 @@
-//  LocationManager.swift
-//  WeatherAPI
-//  Created by Irina Arkhireeva on 18.05.2025.
 
 import Foundation
 import CoreLocation
 
-/// Делегат для уведомлений о результатах получения геолокации
+// Delegate for receiving location update results
 protocol LocationManagerDelegate: AnyObject {
     func didUpdateLocation(latitude: Double, longitude: Double)
     func didFailWithLocation(error: Error?)
 }
 
-/// Менеджер для работы с геолокацией пользователя
+// Manager for handling user location services
 class LocationManager: NSObject {
     private let manager = CLLocationManager()
     weak var delegate: LocationManagerDelegate?
@@ -32,9 +29,9 @@ class LocationManager: NSObject {
         case .notDetermined:
             manager.requestWhenInUseAuthorization()
         case .denied, .restricted:
-            // Пользователь запретил доступ или доступ ограничен
+            // The user has denied or restricted access
             let error = NSError(domain: "LocationManager", code: 1, userInfo: [
-                NSLocalizedDescriptionKey: "Доступ к геолокации запрещен"
+                NSLocalizedDescriptionKey: "Location access is denied"
             ])
             delegate?.didFailWithLocation(error: error)
         @unknown default:
@@ -52,7 +49,7 @@ extension LocationManager: CLLocationManagerDelegate {
             manager.requestLocation()
         case .denied, .restricted:
             let error = NSError(domain: "LocationManager", code: 2, userInfo: [
-                NSLocalizedDescriptionKey: "Доступ к геолокации был отозван"
+                NSLocalizedDescriptionKey: "Location access has been revoked"
             ])
             delegate?.didFailWithLocation(error: error)
         default:
@@ -68,7 +65,7 @@ extension LocationManager: CLLocationManagerDelegate {
             )
         } else {
             let error = NSError(domain: "LocationManager", code: 3, userInfo: [
-                NSLocalizedDescriptionKey: "Не удалось получить координаты"
+                NSLocalizedDescriptionKey: "Failed to retrieve coordinates"
             ])
             delegate?.didFailWithLocation(error: error)
         }

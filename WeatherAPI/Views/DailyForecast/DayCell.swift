@@ -1,10 +1,7 @@
-//  DayCell.swift
-//  WeatherAPI
-//  Created by Irina Arkhireeva on 18.05.2025.
 
 import UIKit
 
-/// Ячейка таблицы для отображения одной записи прогноза дня
+// Table cell for displaying a single day's forecast entry
 class DayCell: UITableViewCell {
     private let dayLabel = UILabel()
     private let iconImageView = UIImageView()
@@ -42,7 +39,7 @@ class DayCell: UITableViewCell {
         ])
     }
     
-    /// Конфигурирует ячейку данными дня
+    // Configures the cell with day data
     func configure(with day: Day) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"

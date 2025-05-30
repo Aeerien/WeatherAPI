@@ -1,10 +1,7 @@
-//  HourCell.swift
-//  WeatherAPI
-//  Created by Irina Arkhireeva on 18.05.2025.
 
 import UIKit
 
-/// Ячейка коллекции для отображения прогноза на конкретный час
+// Collection cell for displaying hourly forecast
 class HourCell: UICollectionViewCell {
     private let timeLabel = UILabel()
     private let iconImageView = UIImageView()
@@ -40,7 +37,7 @@ class HourCell: UICollectionViewCell {
         ])
     }
     
-    /// Настраивает ячейку данными о часе
+    // Configures the cell with hourly data
     func configure(with hour: Hour) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
@@ -50,7 +47,7 @@ class HourCell: UICollectionViewCell {
         }
         tempLabel.text = "\(Int(hour.tempCelsius))°"
         
-        // Загрузка иконки
+        // Loading the icon
         if let url = URL(string: "https:\(hour.condition.icon)") {
             URLSession.shared.dataTask(with: url) { data, _, _ in
                 if let data = data {

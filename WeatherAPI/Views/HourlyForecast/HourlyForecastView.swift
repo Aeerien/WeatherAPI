@@ -1,10 +1,7 @@
-//  HourlyForecastView.swift
-//  WeatherAPI
-//  Created by Irina Arkhireeva on 18.05.2025.
 
 import UIKit
 
-/// View для отображения почасового прогноза с горизонтальным скроллом
+// View for displaying hourly forecast with horizontal scrolling
 class HourlyForecastView: UIView {
     private var hours: [Hour] = []
     private let collectionView: UICollectionView
@@ -43,7 +40,7 @@ class HourlyForecastView: UIView {
         ])
     }
     
-    /// Обновление данных и перезагрузка коллекции
+    // Updating data and reloading the collection
     func configure(with hours: [Hour]) {
         self.hours = hours
         collectionView.reloadData()

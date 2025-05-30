@@ -1,10 +1,7 @@
-//  WeatherViewModel.swift
-//  WeatherAPI
-//  Created by Irina Arkhireeva on 18.05.2025.
 
 import Foundation
 
-/// Отвечает за получение данных, их обработку и уведомление ViewController об изменениях
+// Responsible for fetching data, processing it, and notifying the ViewController about updates
 class WeatherViewModel {
     private let weatherService = WeatherService()
     var onWeatherUpdate: (() -> Void)?
@@ -15,7 +12,7 @@ class WeatherViewModel {
     private(set) var hourlyForecast: [Hour] = []
     private(set) var dailyForecast: [Day] = []
     
-    /// Текущие координаты (по умолчанию Москва)
+    // Current coordinates (default is Moscow)
     private var latitude: Double = 55.7558
     private var longitude: Double = 37.6176
     

@@ -1,10 +1,7 @@
-//  DailyForecastView.swift
-//  WeatherAPI
-//  Created by Irina Arkhireeva on 18.05.2025.
 
 import UIKit
 
-/// View для отображения прогноза погоды на несколько дней
+// View for displaying multi-day weather forecast
 class DailyForecastView: UIView {
     private let tableView = UITableView()
     private var days: [Day] = []
@@ -24,7 +21,7 @@ class DailyForecastView: UIView {
         tableView.register(DayCell.self, forCellReuseIdentifier: "DayCell")
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.isScrollEnabled = false  // таблица будет расширяться по высоте
+        tableView.isScrollEnabled = false
         tableView.separatorStyle = .singleLine
         
         addSubview(tableView)

@@ -1,10 +1,7 @@
-//  WeatherServiceError.swift
-//  WeatherAPI
-//  Created by Irina Arkhireeva on 18.05.2025.
 
 import Foundation
 
-/// Ошибки сервиса WeatherService с описаниями для пользователя
+// Errors from the WeatherService with user-friendly descriptions
 enum WeatherServiceError: LocalizedError {
     case invalidURL
     case requestFailed(errorCode: Int)
@@ -14,13 +11,13 @@ enum WeatherServiceError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidURL:
-            return "Некорректный адрес для получения данных о погоде."
+            return "Invalid URL for fetching weather data."
         case .requestFailed(let errorCode):
-            return "Сервер вернул ошибку (код \(errorCode)). Попробуйте позже."
+            return "Server returned an error (code \(errorCode)). Please try again later."
         case .noData:
-            return "Сервер не прислал данные."
+            return "No data received from the server."
         case .decodingError:
-            return "Не удалось обработать данные от сервера."
+            return "Failed to process the data from the server."
         }
     }
 }
