@@ -89,7 +89,6 @@ open WeatherAPI.xcodeproj
 
 ## 📸 Screenshots
 
-```markdown
-![Current Weather](docs/screenshots/current_weather.png)
-![Hourly Forecast](docs/screenshots/hourly_forecast.png)
-```
+<img src="https://github.com/user-attachments/assets/9eb9a34f-8342-4430-a221-4a83375739f8" width="150"/>
+<img src="https://github.com/user-attachments/assets/17f6b6dd-4251-43be-aac9-3857c8e03f39" width="150"/>
+
